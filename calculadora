@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class Calculadora {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa el primer numero: ");
+        double numero1 = scanner.nextDouble();
+
+        System.out.print("Ingresa el segundo numero: ");
+        double numero2 = scanner.nextDouble();
+
+        operacion operacion = new operacion(numero1, numero2);
+
+        System.out.println("Elige la operacion a realizar:");
+        System.out.println("1. Sumar");
+        System.out.println("2. Restar");
+        System.out.println("3. Multiplicar");
+        int opcion = scanner.nextInt();
+
+        double resultado = 0;
+        switch (opcion) {
+            case 1:
+                resultado = operacion.sumar();
+                break;
+            case 2:
+                resultado = operacion.restar();
+                break;
+            case 3:
+                resultado = operacion.multiplicar();
+                break;
+            default:
+                System.out.println("Opcion no valida.");
+                return;
+        }
+
+        System.out.println("El resultado es: " + resultado);
+    }
+}
+
+public class operacion {
+     private double numero1;
+    private double numero2;
+
+    public operacion(double numero1, double numero2) {
+        this.numero1 = numero1;
+        this.numero2 = numero2;
+    }
+
+    public double sumar() {
+        return numero1 + numero2;
+    }
+
+    public double restar() {
+        return numero1 - numero2;
+    }
+
+    public double multiplicar() {
+        return numero1 * numero2;
+    }
+}
+
+
+
+
+    
